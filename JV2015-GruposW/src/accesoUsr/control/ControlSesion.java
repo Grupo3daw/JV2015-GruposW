@@ -5,6 +5,7 @@ import accesoDatos.GestionDatos;
 import accesoUsr.vista.VistaSesionTexto;
 import modelo.Contraseña;
 import modelo.SesionUsuario;
+import modelo.SesionUsuario.EstadoSesion;
 import modelo.Usuario;
 import util.Fecha;
 
@@ -21,7 +22,7 @@ public class ControlSesion {
 	public ControlSesion(String idUsr) {
 		initControlSesion(idUsr);
 	}
-	
+
 	private void initControlSesion(String idUsr) {
 		datos = GestionDatos.getInstancia();
 		vista = new VistaSesionTexto();
@@ -72,7 +73,7 @@ public class ControlSesion {
 		if (todoCorrecto) {
 			// Registra sesión.
 			// Crea la sesión de usuario en el sistema.
-			sesion = new SesionUsuario(usrSesion, new Fecha());
+			sesion = new SesionUsuario(usrSesion, new Fecha(), EstadoSesion.ACTIVA);
 			try {
 				datos.altaSesion(sesion);
 			} catch (DatosException e) {
