@@ -9,6 +9,7 @@ package accesoDatos.memoria;
  *  @version: 2.2 - 18/05/2015 
  *  @author: ajp
  */
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class SesionesDAO implements OperacionesDAO {
 	private static SesionesDAO instancia = null;
 
 	// Elemento de almacenamiento. 
-	private ArrayList<SesionUsuario> sesionesUsuario;
+	private static ArrayList<SesionUsuario> sesionesUsuario;
 
 	/**
 	 * Constructor por defecto de uso interno.
